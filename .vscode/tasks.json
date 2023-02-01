@@ -1,0 +1,36 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++.exe build active file",
+			"command": "C:\\msys64\\mingw32\\bin\\g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"${file}",
+				"-Isrc/Include",
+				"-Isrc/Include/embedded",
+				"-Isrc/Include/FastLEDLinux",
+				"-Lsrc/lib",
+				"src\\include\\FastLEDLinux\\*.cpp",
+				"-o",
+				
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+
+
+				"-lmingw32",
+				 "-lSDL2main", 
+				 "-lSDL2",
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: C:\\msys64\\mingw32\\bin\\g++.exe"
+		}
+	]
+}
