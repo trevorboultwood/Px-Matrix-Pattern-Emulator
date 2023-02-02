@@ -7,28 +7,28 @@
 
 void initPatterns(void)
 {
-      noisesmoothing = 200;
+    noisesmoothing = 200;
 
-  // just any free input pin
-  // random16_add_entropy(analogRead(18));
+    // just any free input pin
+    // random16_add_entropy(analogRead(18));
 
-  // fill coordinates with random values
-  // set zoom levels
-  noise_x = random16();
-  noise_y = random16();
-  noise_z = random16();
-  noise_scale_x = 6000;
-  noise_scale_y = 6000;
+    // fill coordinates with random values
+    // set zoom levels
+    noise_x = random16();
+    noise_y = random16();
+    noise_z = random16();
+    noise_scale_x = 6000;
+    noise_scale_y = 6000;
 
-  // for the random movement
-  dx = random8();
-  dy = random8();
-  dz = random8();
-  dsx = random8();
-  dsy = random8();
+    // for the random movement
+    dx = random8();
+    dy = random8();
+    dz = random8();
+    dsx = random8();
+    dsy = random8();
 }
 
-void drawPattern(SDL_Renderer* renderer)
+void drawPattern(SDL_Renderer *renderer)
 {
     for (int x = 0; x < 64; x++)
     {
@@ -49,22 +49,21 @@ void drawPattern(SDL_Renderer* renderer)
     time_counter++;
 }
 
-void drawPattern2(SDL_Renderer* renderer)
+void drawPattern2(SDL_Renderer *renderer)
 {
-            // 4 corners of colour. Looks sick.
-        noise_y += dy;
-        noise_x += dx;
-        noise_z += dz;
+    // 4 corners of colour. Looks sick.
+    noise_y += dy;
+    noise_x += dx;
+    noise_z += dz;
 
-        FillNoise();
-        ShowNoiseLayer2(0, 2, 1);
+    FillNoise();
+    ShowNoiseLayer2(0, 2, 1);
 
-        //Caleidoscope3();
-        //Caleidoscope1();
-        Caleidoscope6();
-        Caleidoscope6();
-        ShowFrame(renderer);
-
+    // Caleidoscope3();
+    // Caleidoscope1();
+    Caleidoscope6();
+    Caleidoscope6();
+    ShowFrame(renderer);
 }
 
 int main(int argc, char **argv)
@@ -87,41 +86,41 @@ int main(int argc, char **argv)
     SDL_RenderDrawPoint(renderer, 640 / 2, 480 / 2); // draw a point
     // DrawFilledCircle(renderer, 320+i,240,50);
 
-    //DrawCircleArray(renderer);
-    initPatterns(); //init some variables used in in some of the patterns.
+    // DrawCircleArray(renderer);
+    initPatterns(); // init some variables used in in some of the patterns.
     bool running = true;
 
-
-
-
-        while(running){
+    while (running)
+    {
         SDL_Event event;
-        while(SDL_PollEvent(&event)){
-            switch(event.type){
+        while (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
                 case SDL_QUIT:
+                {
                     running = false;
                     break;
+                }
 
                 default:
+                {
+                    // default loop
+                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                    SDL_RenderClear(renderer);
+                    // drawPattern(renderer);
+                    drawPattern2(renderer);
+                    SDL_RenderPresent(renderer);
+
                     break;
+                }
             }
 
 
-
-                    //default loop
-
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
-        //drawPattern(renderer);
-        drawPattern2(renderer);
-        SDL_RenderPresent(renderer);
         }
-
     }
     SDL_DestroyWindow(window);
     SDL_Quit();
-
-
 
     return 0;
 }
