@@ -4,8 +4,16 @@ I found it cumbersome when working with the ESP32 and PxMatrix to constantly hav
 With this project you are able to emulate your pattern on a windows machine.
 
 Installation should be straight forward for those who have prior knowledge with C/C++ within VSCODE. But I have included a small guide below for those who are new to programming and compiling.
+
+# BACKGROUND
+This uses SDL2 Platform, likely overkill. I wanted to improve my ability with using C++ and didnt want to uses Visual Studio as this would of been too easy.
+
+Surprisingly the FPS of this is terrible! I will be working out why. The ESP32 has a better framerate which is rather concerning...
+
+I've posted this online as some of you might find this interesting.
+
 # Setup
-This code is compiled with the GCC compiler which can be done with the command promt. As Vscode is essentially a 'swave' text editor a handy vscode extension (https://code.visualstudio.com/docs/languages/cpp) allows for an easy way for vscode to execute the 'build string from within'. The extension also allows for debugging which uses GDB.
+This code is compiled with the GCC compiler which can be done with the command promt. As Vscode is essentially a 'suave' text editor a handy vscode extension (https://code.visualstudio.com/docs/languages/cpp) allows for an easy way for vscode to execute the 'build string from within'. The extension also allows for debugging which uses GDB.
 
 The .vscode folder contains four .json files which contain the extension properties (c_cpp_properties) and general settings(settings.json). We will get on to(tasks.json) and (launch.json) shortly. 
 
@@ -22,6 +30,6 @@ Pressing CTRL+SHIFT+B whilst looking at main.cpp within VSCODE will carry out th
 
 Pressing F5 (Debug) will first carry out the build task above and then connect VSCODE to the Debugger where you can step through the program.
 
-The project will probnabnly work with other compilers but I found it had to be 32bit (Probably the SDL2 library I have used for this project).
+The project will probably work with other compilers but I found it had to be 32bit (Probably the SDL2 library I have used for this project).
 
 I hope you found this useful.
