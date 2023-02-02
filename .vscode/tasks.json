@@ -9,12 +9,17 @@
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
-				"-Isrc/Include",
+
+				//"-Isrc/Include",
 				"-Isrc/Include/embedded",
+				"-Isrc/Include/effects",
+				"-Isrc/Include/Display",
 				"-Isrc/Include/FastLEDLinux",
+				"-Isrc/Include/SDL2",
 				"-Lsrc/lib",
 				"src\\include\\FastLEDLinux\\*.cpp",
-				"-o",
+				"src\\include\\Display\\DisplayRenderer.cpp",
+								"-o",
 				
 				"${fileDirname}\\${fileBasenameNoExtension}.exe",
 
@@ -22,6 +27,7 @@
 				"-lmingw32",
 				 "-lSDL2main", 
 				 "-lSDL2",
+				 "-std=c++17",
 			],
 			"options": {
 				"cwd": "${fileDirname}"

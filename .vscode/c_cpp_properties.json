@@ -4,8 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}\\src\\include\\**",
-                "${workspaceFolder}\\src\\include\\FastLEDLinux**"
+                //"${workspaceFolder}\\src\\include\\**",
+                //"${workspaceFolder}\\src\\include\\FastLEDLinux**",
+                "${workspaceFolder}/src/include"
             ],
             "defines": [
                 "_DEBUG",
