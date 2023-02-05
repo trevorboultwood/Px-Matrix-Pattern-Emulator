@@ -8,8 +8,9 @@
 #include <SDL.h>
 #define CIRCLE_R 4
 
-#define SCREEN_WIDTH (2 * CIRCLE_R + 2) * 64 + CIRCLE_R
-#define SCREEN_HEIGHT (2 * CIRCLE_R + 2) * 64 + CIRCLE_R
+#define SCREEN_WIDTH (2 * CIRCLE_R + 4) * 64 - CIRCLE_R
+#define SCREEN_HEIGHT (2 * CIRCLE_R + 4) * 64 - CIRCLE_R
+
 #define MATRIX_WIDTH 64
 #define MATRIX_HEIGHT 64
 
@@ -18,7 +19,7 @@
 
 class Effects{
   public:
-    CRGBPalette16 palettes[5] = {HeatColors_p, LavaColors_p, RainbowColors_p, RainbowStripeColors_p, CloudColors_p};
+    CRGBPalette16 palettes[6] = {HeatColors_p, LavaColors_p, RainbowColors_p, RainbowStripeColors_p, CloudColors_p, PartyColors_p};
     uint16_t NUM_LEDS = (MATRIX_WIDTH * MATRIX_HEIGHT) + 1; // one led spare to capture out of bounds
     CRGB *leds;//[NUM_LEDS];
     uint32_t noise_x, noise_y, noise_z;
@@ -32,7 +33,7 @@ class Effects{
     const byte MATRIX_CENTRE_X = MATRIX_CENTER_X - 1;
     const byte MATRIX_CENTRE_Y = MATRIX_CENTER_Y - 1;
 
-
+    int INTcurrentPalette = 2;
     CRGBPalette16 currentPalette = palettes[2];
     uint8_t noise[MATRIX_WIDTH][MATRIX_HEIGHT];
     CRGB ColorFromCurrentPalette(uint8_t index = 0, uint8_t brightness = 255, TBlendType blendType = LINEARBLEND)
@@ -287,6 +288,8 @@ class Effects{
           // efect.pixel not working?!
         }
       }
+      Caleidoscope3();
+      Caleidoscope1();
       ShowFrame(renderer);
       time_counter++;
     }
@@ -307,6 +310,11 @@ class Effects{
     //Caleidoscope6();
     ShowFrame(renderer);
   }
+
+
+
+
+
 
 
 };

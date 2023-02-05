@@ -16,6 +16,7 @@ class DisplayRenderer
         void handleEvent();
         void clean();
         bool running();
+        void nextPallete();
         
     private:
         Effects *effects;

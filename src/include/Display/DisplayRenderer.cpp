@@ -36,7 +36,7 @@ void DisplayRenderer::render()
 {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
-    effects->drawPattern2(renderer);
+    effects->drawPattern(renderer);
     SDL_RenderPresent(renderer);
 }
 void DisplayRenderer::handleEvent()
@@ -50,13 +50,28 @@ void DisplayRenderer::handleEvent()
             isRunning = false;
             break;
         }
+        case SDL_KEYDOWN:
+        {
+            nextPallete();
+            break;
+        }
         default:
+        
         {
             break;
         }
+
     }
 }
 bool DisplayRenderer::running()
 {
     return isRunning;
+}
+void DisplayRenderer::nextPallete()
+{
+    if(effects->INTcurrentPalette + 1 > 5)
+        effects->INTcurrentPalette = 0;
+    else
+        effects->INTcurrentPalette ++;
+    effects->currentPalette = effects->palettes[effects->INTcurrentPalette];
 }

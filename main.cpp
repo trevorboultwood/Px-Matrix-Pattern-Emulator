@@ -1,5 +1,4 @@
 #include<DisplayRenderer.h>
-#define CIRCLE_R 4
 #define __linux__
 
 DisplayRenderer *myDisplay;
