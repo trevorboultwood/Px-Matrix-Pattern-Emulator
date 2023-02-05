@@ -36,4 +36,4 @@ I hope you found this useful.
 
 
 #Demo
-![Alt text](Demo.png?raw=true "Title")
+![Alt text](/Demo.png?raw=true "Title")
